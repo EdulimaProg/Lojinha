@@ -12,7 +12,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
-    <script type="text/javascript" src="js/ProdutosJSON.js"> </script>
+
     <!-- Css Padrão-->
     <link href="css/lojinhaEstilo.css" rel="stylesheet">
 
@@ -34,23 +34,24 @@
         </ul>
     </div>
 </nav>
-<div id="item-loja" name=item-loja"" href="" onload="carregarProdutos()" class="card" style="width: 15rem;">
+<div id="item-loja" name=item-loja"" href="" class="card" style="width: 15rem;">
+    <script src="scriptLoja.js"> </script>
     <img id="imagem-item" name="imagem-item" src="..." class="card-img-top" alt="...">
     <div id="div-item" name="div-item" class="card-body">
         <h5 id="nome-item" name="nome-item" class="card-title">Card title</h5>
         <p id="preco-item" name="preco-item" class="card-text">99,99.</p>
         <a id="btn-iten" name="btn-iten"  href="#" class="btn btn-primary">Comprar</a>
+        <script src="scriptLoja.js"> </script>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $.get("https://bannetloja.herokuapp.com/produtos",function (data) {
-            for(linha = 0; linha < data.length; linha++){
-                $("#nome-item").html(data[0].nome)
-            }
+    <script>
+        $.getJSON('https://bannetloja.herokuapp.com/produtos',function (data) {
+            $.each(data, function (index, value) {
+                $('#nome-item'),innerHTML(value[index].nome);       // Read the data.
+            });
+        });
         })
-    })
-</script>
+    </script>
 </div>
 </body>
 </html>
