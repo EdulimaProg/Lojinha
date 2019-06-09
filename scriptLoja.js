@@ -7,7 +7,7 @@ $(document).ready(function () {
         dataType:'json',
         success: function (data) {
             $.each(data,function (index,element) {
-                console.log(element[index].nome);
+                console.log(element);
             })
 
         }
