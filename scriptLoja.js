@@ -1,16 +1,9 @@
-function lerJS(){
-$(document).ready(function () {
-    $.ajax({
-        type:'GET',
-        url:'https://bannetloja.herokuapp.com/produtos',
-        data:data,
-        dataType:'json',
-        success: function (data) {
-            $.each(data,function (index,element) {
-                console.log(element);
-            })
+function lerJS() {
+    $(document).ready(function () {
+        $.getJSON("ttps://bannetloja.herokuapp.com/produtos", {format: "json"}).done(function (data) {
+            console.log(data);
+        });
 
-        }
-    })
-})
+
+    });
 }
